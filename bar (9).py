@@ -1461,22 +1461,22 @@ class BarPremiumApp:  # Define la clase principal de la aplicación
         if messagebox.askokcancel("Salir", "¿Desea cerrar la aplicación?"):
             self.root.destroy()
 
-    def generar_factura_electronica(self):
-        # Verifica si hay una mesa seleccionada y si tiene pedidos
-        if self.mesa_actual is None or not self.mesas[self.mesa_actual]["pedidos"]:
-            messagebox.showwarning("Aviso", "No hay pedidos para pagar")
-            return
-            
-        # Crea un diccionario con los detalles de la venta
-        venta = {
-            'fecha': datetime.now().strftime('%d/%m/%Y %H:%M'),  # Fecha y hora actual
-            'mesa': self.mesa_actual,  # Número de la mesa
-            'pedidos': self.mesas[self.mesa_actual]['pedidos'],  # Lista de pedidos
-            'total': self.mesas[self.mesa_actual]['total'],  # Total a pagar
-            'tiempo': str(datetime.now() - self.mesas[self.mesa_actual]['hora_inicio']) if self.mesas[self.mesa_actual]['hora_inicio'] else "N/A"  # Tiempo transcurrido
-        }
+def generar_factura_electronica(self):
+    # Verifica si hay una mesa seleccionada y si tiene pedidos
+    if self.mesa_actual is None or not self.mesas[self.mesa_actual]["pedidos"]:
+        messagebox.showwarning("Aviso", "No hay pedidos para pagar")
+        return
+        
+    # Crea un diccionario con los detalles de la venta
+    venta = {
+        'fecha': datetime.now().strftime('%d/%m/%Y %H:%M'),  # Fecha y hora actual
+        'mesa': self.mesa_actual,  # Número de la mesa
+        'pedidos': self.mesas[self.mesa_actual]['pedidos'],  # Lista de pedidos
+        'total': self.mesas[self.mesa_actual]['total'],  # Total a pagar
+        'tiempo': str(datetime.now() - self.mesas[self.mesa_actual]['hora_inicio']) if self.mesas[self.mesa_actual]['hora_inicio'] else "N/A"  # Tiempo transcurrido
+    }
 
-        # Aquí podrías agregar la lógica para generar la factura electrónica, como guardarla en un archivo o enviarla a un servicio externo.
+    # Aquí podrías agregar la lógica para generar la factura electrónica, como guardarla en un archivo o enviarla a un servicio externo.
 
         
 if __name__ == "__main__": 
